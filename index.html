@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ck46 — AI & Robotics Engineer</title>
+  <meta name="description" content="Personal website of ck46 — AI researcher, robotics enthusiast, and open-source contributor.">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a28;
+      --text: #e4e4e7;
+      --text-muted: #8b8b9e;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --border: #1e1e2e;
+      --radius: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover { color: #a5b4fc; }
+
+    /* ── Layout ─────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Nav ────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    nav .logo span { color: var(--accent-light); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+    nav ul a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text); }
+
+    /* ── Hero ───────────────────────────────── */
+    .hero {
+      padding: 10rem 0 5rem;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .greeting {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent-light), #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .hero-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-light);
+      color: #fff;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* ── Section ────────────────────────────── */
+    section {
+      padding: 4rem 0;
+    }
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+    section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    section > .container > p {
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Cards grid ─────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: #2a2a3e;
+    }
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Interests (tag list) ──────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* ── Contact ────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-item:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      color: var(--text);
+    }
+    .contact-item svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--accent-light);
+    }
+
+    /* ── Footer ─────────────────────────────── */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Animations ─────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ─────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 7rem 0 3rem; }
+      nav ul { gap: 1rem; }
+      .cards { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────── -->
+<nav>
+  <div class="container">
+    <div class="logo">ck<span>46</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────── -->
+<header class="hero">
+  <div class="container">
+    <p class="greeting fade-in">Hello, I'm</p>
+    <h1 class="fade-in">Building the future with<br><span class="highlight">AI & Robotics</span></h1>
+    <p class="fade-in">AI researcher and engineer working on machine learning models, robotics systems, and open-source tools. Always curious, always building.</p>
+    <div class="hero-links fade-in">
+      <a href="https://huggingface.co/ck46" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        HuggingFace
+      </a>
+      <a href="https://github.com/ck46" class="btn btn-outline" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ── About ────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label fade-in">About</p>
+    <h2 class="fade-in">A bit about me</h2>
+    <p class="fade-in">I work at the intersection of artificial intelligence and robotics, developing models and systems that push the boundaries of what machines can do. When I'm not training neural networks, you'll find me learning piano (much slower than gradient descent), reading One Piece, or swimming laps.</p>
+  </div>
+</section>
+
+<!-- ── Work ─────────────────────────────────── -->
+<section id="work">
+  <div class="container">
+    <p class="section-label fade-in">What I Do</p>
+    <h2 class="fade-in">Focus areas</h2>
+    <p class="fade-in">Here's what I spend most of my time working on.</p>
+    <div class="cards">
+      <div class="card fade-in">
+        <div class="card-icon">&#x1F9E0;</div>
+        <h3>AI & Machine Learning</h3>
+        <p>Building and fine-tuning models for a range of applications. Publishing models and datasets on HuggingFace for the open-source community.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">&#x1F916;</div>
+        <h3>Robotics</h3>
+        <p>Working on intelligent robotic systems that can perceive, reason, and act in the real world. Always open to collaboration on robotics projects.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">&#x1F4BB;</div>
+        <h3>Open Source</h3>
+        <p>Contributing to the open-source AI ecosystem. I believe in making research accessible and tools available to everyone.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon">&#x1F4DA;</div>
+        <h3>Research</h3>
+        <p>Staying on the cutting edge of AI research, exploring new architectures, training techniques, and applications across domains.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Interests ────────────────────────────── -->
+<section id="interests">
+  <div class="container">
+    <p class="section-label fade-in">Beyond Code</p>
+    <h2 class="fade-in">Interests</h2>
+    <p class="fade-in">Things I enjoy outside of work.</p>
+    <div class="tags fade-in">
+      <span class="tag">&#x1F3B9; Piano</span>
+      <span class="tag">&#x1F3CA; Swimming</span>
+      <span class="tag">&#x1F4D6; One Piece</span>
+      <span class="tag">&#x1F916; AI & Robotics</span>
+      <span class="tag">&#x1F30D; Open Source</span>
+      <span class="tag">&#x1F52C; Research</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ──────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Get in Touch</p>
+    <h2 class="fade-in">Let's connect</h2>
+    <p class="fade-in">I'm always open to interesting conversations about AI, robotics, or potential collaborations.</p>
+    <div class="contact-grid">
+      <a href="https://github.com/ck46" class="contact-item fade-in" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://huggingface.co/ck46" class="contact-item fade-in" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        HuggingFace
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 ck46. Built with curiosity.</p>
+  </div>
+</footer>
+
+<!-- ── Scroll animation ─────────────────────── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
