@@ -1,12 +1,11 @@
-### Hi there 👋
+## Hey, I'm ck46
 
-Here are some ideas to get you started:
+AI & Robotics engineer building intelligent systems.
 
-- 🔭 I’m currently working on AI models (huggingface.co/ck46)
-- 🌱 I’m learning to play piano, but not as fast as an ML model
-- 👯 I’m open to collaborating on AI and Robotics projects
-- 🤔 I think the robot uprising is unlikely
-- 💬 Ask me about AI
-- 📫 How to reach me: @ck46
-- ⚡ Fun fact: One Piece is my favorite Manga!
-- 🏊🏼‍♂️ Swimming is how I keep fit!
+**Currently working on** — AI models ([HuggingFace](https://huggingface.co/ck46))
+
+**Interests** — Machine Learning, Robotics, Open Source, Piano, Swimming, One Piece
+
+**Open to** — Collaborating on AI and Robotics projects
+
+**Reach me** — [@ck46](https://github.com/ck46)
