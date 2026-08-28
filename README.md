@@ -4,7 +4,7 @@ AI & Robotics engineer building intelligent systems.
 
 **Currently working on** — AI models ([HuggingFace](https://huggingface.co/ck46))
 
-**Interests** — Machine Learning, Robotics, Open Source, Piano, Swimming, One Piece
+**Interests** — Nature of Intelligence, Robotics, Open Source, Piano, Tennis, Swimming, One Piece
 
 **Open to** — Collaborating on AI and Robotics projects
 
